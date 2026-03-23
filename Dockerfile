@@ -1,5 +1,5 @@
-FROM openjdk:17-jdk-slim
-ADD target/customer-0.0.1-SNAPSHOT.jar /app/customer-0.0.1-SNAPSHOT.jar
+FROM amazoncorretto:17
 WORKDIR /app
+COPY customer/target/customer-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "customer-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
